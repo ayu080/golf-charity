@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { LucideIcon } from 'lucide-react';
 
 export default function HomeClient({ activeMembersCount, charities }: { activeMembersCount: number | null, charities: any[] | null }) {
   const displayCount = activeMembersCount || 14000;
   const charity1 = charities?.[0]?.name || "Clean Water Initiative";
   const charity2 = charities?.[1]?.name || "Youth Education";
-
   return (
     <>
       <nav id="main-nav" className="fixed top-0 w-full z-50 bg-surface/80 dark:bg-[#181f21]/80 backdrop-blur-xl border-b border-outline-variant/20">
@@ -59,7 +59,7 @@ export default function HomeClient({ activeMembersCount, charities }: { activeMe
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="relative w-full aspect-[4/5] md:aspect-[21/9] overflow-hidden rounded-xl shadow-2xl"
             >
-              <img id="hero-image" alt="Community gathering" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWCWBkhILiirCASHpTuSfwE1YDsotzJ5uqifkkeAFPKapCZdKAdjKsojEThn0CE3xcbnikf8OG5_W8YlfmDcMgZSHiAMolpcsObzBGrc_8QnuBjoMPopIKXGE1sxlHb0m7A-mXO6p6eZeKFr62bQI0IzxsxGEDhWvbilpta7_gdxkdFjDPY_IZ9ZcZmsbXhrubpIhl-insqBSW9DyTivQc1CF3huj-PhQ-5CxEDC9QtMFYcPrK1pr5MwYfvSq6llqXtsBUd19Y_ZEL" />
+              <img id="hero-image" alt="Community gathering" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWCWBkhILiirCASHpTuSfwE1YDsotzJ5uqifkkeAFPKapCZdKAdjKsojEThn0CE3xcbnikf8OG5_W8YlfmDcMgZSHiAMolpcsObzBGrc_8QnuBjoMPopIKXGE1sxlHb0m7A-mXO6p6eZeKFr62bQI0IzxsxGEDhWvbilpta3_gdxkdFjDPY_IZ9ZcZmsbXhrubpIhl-insqBSW9DyTivQc1CF3huj-PhQ-5CxEDC9QtMFYcPrK1pr5MwYfvSq6llqXtsBUd19Y_ZEL" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex items-end p-8">
                 <motion.div 
                   initial={{ x: -20, opacity: 0 }}
@@ -101,8 +101,10 @@ export default function HomeClient({ activeMembersCount, charities }: { activeMe
                     <span className="material-symbols-outlined text-3xl text-primary" data-icon="edit_note">edit_note</span>
                   </div>
                   <h3 className="text-3xl font-bold font-headline">Play</h3>
-                  <p className="text-on-surface-variant text-lg max-w-sm leading-relaxed">Every stroke counts. Enter your scores after each round to build your impact profile and track your philanthropic progress.</p>
-                </div>
+                  <p className="text-secondary-fixed/60 mt-4 max-w-2xl mx-auto font-medium">
+            Every swing counts. Your passion for the game fuels our mission to drive change through sport. It&apos;s more than a leadboard; it&apos;s a movement.
+          </p>
+      </div>
                 <Link id="link-play" href="/dashboard" className="mt-8 flex items-center gap-3 text-primary font-bold text-lg group-hover:gap-5 transition-all w-fit">
                   <span>Enter your scores</span>
                   <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>

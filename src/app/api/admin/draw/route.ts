@@ -15,13 +15,13 @@ const generateAlgorithmicDraw = (allScores: number[]) => {
   // For demo purposes, we will slightly weight towards numbers that actually appeared
   if(allScores.length < 5) return generateRandomDraw()
   
-  const freqMap = allScores.reduce((acc: any, score) => {
+  const freqMap = allScores.reduce((acc: Record<number, number>, score) => {
     acc[score] = (acc[score] || 0) + 1
     return acc
   }, {})
   
   // Sort by frequency
-  const sortedByFreq = Object.entries(freqMap).sort((a: any, b: any) => b[1] - a[1])
+  const sortedByFreq = Object.entries(freqMap).sort((a, b) => (b[1] as number) - (a[1] as number))
   
   const nums = new Set<number>()
   // Pick top 2 frequent
@@ -159,8 +159,9 @@ export async function POST(req: Request) {
       }
     })
 
-  } catch (error: any) {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error'
     console.error('Draw api error:', error)
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }
